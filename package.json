@@ -24,5 +24,8 @@
     "preferences": "^0.2.1",
     "simple-git": "^1.48.0",
     "touch": "^1.0.0"
+  },
+  "bin": {
+    "ginit": "./index.js"
   }
 }
