@@ -6,12 +6,21 @@ It will also create a remote repository on Github or BitBucket right from the co
 Ginit generates a .gitignore file  created from templates from [gitignore.io](https://www.gitignore.io/) based on the users needs.
 Finally, it performs an initial commit and pushes to the master branch.
 
-## Usage
+## Installation
 
 Install using
 
     npm install -g ginit
+    
+## Usage
 
 Run using
 
     ginit
+
+## Future
+1. [ ] BitBucket support
+2. [ ] Gitignore.io templates
+3. [ ] Refractor code
+4. [ ] Better validation to prompts
+5. [ ] Two Step Validation for Github
