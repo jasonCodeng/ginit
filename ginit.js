@@ -14,16 +14,17 @@ var fs          = require('fs');
 var Preferences = require('preferences');
 
 /**
-*
+* Clui Spinner settings
 */
 var CLI         = require('clui');
 var Spinner     = CLI.Spinner;
 
 /**
-*
+* Github settings
 */
 var GitHubApi   = require("github");
 var github      = new GitHubApi({ version: '3.0.0'})
+
 /**
  * Require own dependencies
  */
@@ -178,6 +179,13 @@ function createRepo(callback) {
       message: 'Is this a public or private repository?',
       choices: ['Public', 'Private'],
       default: 'Public'
+    },
+    {
+      type: 'list',
+      name: 'initial_commit',
+      message: 'Would you like to commit and push .gitignore right now?',
+      choices: ['Yes', 'No'],
+      default: 'Yes'
     }
   ];
 
@@ -198,13 +206,13 @@ function createRepo(callback) {
         if (err) {
           return callback(err);
         }
-        return callback(null, res.ssh_url);
+        return callback(null, res.clone_url, answers.initial_commit);
       }
     )
   })
 }
 
-function createGitIgnore(callback) {
+function createGitIgnore(callback, initial_commit) {
   var filelist = _.without(fs.readdirSync('.'), '.git', '.gitignore');
 
   if (filelist.length) {
@@ -228,7 +236,7 @@ function createGitIgnore(callback) {
     })
   } else {
     touch('.gitignore');
-    return callback();
+    return callback(initial_commit);
   }
 }
 
@@ -275,18 +283,24 @@ githubAuth(function(err, authed) {
   }
   if (authed) {
     console.log(chalk.green('Successfully authenticated!'));
-    createRepo(function (err, url) {
+
+    createRepo(function (err, url, initial_commit) {
       if (err) {
         console.log('An error has occured');
       }
       if (url) {
         createGitIgnore(function() {
-          setupRepo(url, function(err) {
-            if(!err) {
-              console.log(chalk.green('Finished!'));
-            }
-          });
-        });
+          if(initial_commit === "Yes") {
+            setupRepo(url, function(err) {
+              if(!err) {
+                console.log(chalk.green('Finished! Repository and .gitignore has been created, first commit has been pushed!'));
+              }
+            });
+          }
+          else {
+            console.log(chalk.green('Finished! Repository and .gitignore has been created!'));
+          }
+        }, initial_commit);
       }
     });
   }
