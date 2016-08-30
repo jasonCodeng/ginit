@@ -36,11 +36,11 @@ var github      = new GitHubApi({ version: '3.0.0'})
 clear();
 
 /**
- * Print 'Ginit' ASCII art in green.
+ * Print 'git-init-plus' ASCII art in green.
  */
 console.log(
   chalk.green(
-    figlet.textSync('Ginit', {
+    figlet.textSync('git-init-plus', {
       font: 'Standard',
       horizontalLayout: 'default',
       verticalLayout: 'default'
@@ -93,12 +93,12 @@ function getGithubCredentials(callback) {
 
 function getGithubToken(callback) {
   /**
-  * Create a new preferences file named 'ginit'. If it exists, then read the contents and decode into JSON
+  * Create a new preferences file named 'git-init-plus'. If it exists, then read the contents and decode into JSON
   */
-  var prefs = new Preferences('ginit');
+  var prefs = new Preferences('git-init-plus');
 
   /**
-  * Check if 'ginit' perferences file already has a Github token in storage
+  * Check if 'git-init-plus' perferences file already has a Github token in storage
   * TODO: add two step authentcation
   */
   if (prefs.github && prefs.github.token) {
@@ -133,7 +133,7 @@ function getGithubToken(callback) {
     */
     github.authorization.create({
         scopes: ['user', 'public_repo', 'repo', 'repo:status'],
-        note: 'ginit, the super powered git init'
+        note: 'git-init-plus, the super powered git init'
     }, function(err, res) {
         spinner.stop();
         if (err) {
