@@ -24,3 +24,16 @@ Run using
 3. [ ] Refractor code
 4. [ ] Better validation to prompts
 5. [ ] Two Step Validation for Github
+
+## Contributing
+
+Feel free to submit pull requests.
+
+## License
+
+This project is licensed under the MIT License - see the 
+[LICENSE.md](https://github.com/jasonCodeng/ginit/blob/master/LICENSE.md) file for details
+
+## Acknowledgments
+
+* [NodeJS](https://nodejs.org/)
