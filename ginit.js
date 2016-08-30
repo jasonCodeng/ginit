@@ -50,12 +50,11 @@ console.log(
 /**
 * Check if current directory has a .git directory
 */
-/* COMMENTED OUT FOR TESTING PURPOSES
+
 if(files.checkDirectoryExists('.git')) {
   console.log(chalk.red('This directory is already a git repository!'))
   process.exit();
 }
-*/
 
 /**
 * Prompt user for Github Credentials
@@ -149,11 +148,7 @@ function getGithubToken(callback) {
     });
   });
 }
-/*
-getGithubToken(function(){
-  console.log(arguments);
-});
-*/
+
 function createRepo(callback) {
   var argv = require('minimist')(process.argv.slice(2));
 
@@ -193,7 +188,7 @@ function createRepo(callback) {
     var data = {
       name: answers.name,
       description: answers.description,
-      private: (answers.visibility === 'private')
+      private: (answers.visibility === 'Private')
     };
 
     github.repos.create(
@@ -242,16 +237,16 @@ function setupRepo(url, callback) {
   spinner.start();
 
   git
-    .init()
-    .add('.gitignore')
-    .add('./*')
-    .commit('Initial commit')
-    .addRemote('origin', url)
-    .push('origin', 'master')
-    .then(function() {
-      spinner.stop();
-      return callback();
-    });
+  .init()
+  .add('.gitignore')
+  .add('./*')
+  .commit('Initial commit')
+  .addRemote('origin', url)
+  .push('origin', 'master')
+  .then(function(){
+    spinner.stop();
+    return callback();
+  });
 }
 
 function githubAuth(callback) {
@@ -260,8 +255,8 @@ function githubAuth(callback) {
       return callback(err);
     }
     github.authenticate({
-      type: 'oauth',
-      token: token
+      type : 'oauth',
+      token : token
     });
     return callback(null, token);
   });
