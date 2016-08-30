@@ -1,5 +1,6 @@
-# ginit.js
-ginit.js (or ginit) is a JavaScript CLI for quickly bootstrapping a Git project.
+# git-init-plus
+
+git-init-plus.js (or g+) is a JavaScript CLI for quickly bootstrapping a Git project.
 
 It runs git init under the hood, but not only that. 
 It will also create a remote repository on Github or BitBucket right from the command line.
@@ -10,13 +11,12 @@ Finally, it performs an initial commit and pushes to the master branch.
 
 Install using
 
-    npm install -g ginit
-    
+
 ## Usage
 
 Run using
 
-    ginit
+    
 
 ## Future
 1. [ ] BitBucket support
@@ -32,7 +32,7 @@ Feel free to submit pull requests.
 ## License
 
 This project is licensed under the MIT License - see the 
-[LICENSE.md](https://github.com/jasonCodeng/ginit/blob/master/LICENSE.md) file for details
+[LICENSE.md](https://github.com/jasonCodeng/git-init-plus/blob/master/LICENSE.md) file for details
 
 ## Acknowledgments
 
