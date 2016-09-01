@@ -1,5 +1,7 @@
 # git-init-plus
 
+:construction: __Under construction! Not ready for public use.__ :construction:
+
 git-init-plus.js (or g+) is a JavaScript CLI for quickly bootstrapping a Git project.
 
 It runs git init under the hood, but not only that. 
