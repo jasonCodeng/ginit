@@ -1,7 +1,7 @@
 {
   "name": "git-init-plus",
   "version": "0.0.1",
-  "description": "\"git init\" on steroids",
+  "description": "git init on steroids",
   "main": "git-init-plus.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
