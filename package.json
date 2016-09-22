@@ -1,6 +1,6 @@
 {
   "name": "git-init-plus",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "git init on steroids",
   "main": "git-init-plus.js",
   "scripts": {
